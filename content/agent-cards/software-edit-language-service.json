@@ -1,0 +1,110 @@
+{
+  "name": "software-edit-language-service",
+  "capabilities": {
+    "extensions": [
+      {
+        "uri": "ni:///sha-256;wzh-zYeFQCsh4zAzGS34uacNV4qJeIEmCKIUUWyRZ-M",
+        "required": true,
+        "params": {
+          "profile": "org.emsenn.rmn.sovereign-circuit-interface.v1",
+          "account": "eip155:31337:0x8134324bb34c4ab95dd2259ab2b56a6cf356e1cc",
+          "authority": "ni:///sha-256;AW_FjadS4-g7jzlnjH7GsGxlmuCliuGKttFRLYHLxEo",
+          "custody": "ni:///sha-256;bxSeRHbbmw5F-Ffxy7RHv8WgL9gE-B__3Sged7II6-I",
+          "territory": "ni:///sha-256;ThVdTbJDH4M0g_iwIG5fZ4LYQ5WPDwmGkEOj0gDkXX0",
+          "component": {
+            "profile": "org.emsenn.rmn.hierarchical-circuit.v3",
+            "law": "ni:///sha-256;u2w3T0PAw4iDPlXdEKDQMyBfTZMyIVyjvEyRHZcCjpU",
+            "ports": [
+              {
+                "name": "request",
+                "direction": "input",
+                "predicate": "ni:///sha-256;imfYYXnGSUccFG5ssZFW9dA0suu-_rPO2CU2fgDqXDw",
+                "carrier": "ni:///sha-256;jOi94EsaoIwgn1zquZyqcG0iUQhuCKB-dZqcJ2PqoTg",
+                "mode": "tensor"
+              },
+              {
+                "name": "receipt",
+                "direction": "output",
+                "predicate": "ni:///sha-256;imfYYXnGSUccFG5ssZFW9dA0suu-_rPO2CU2fgDqXDw",
+                "carrier": "ni:///sha-256;jOi94EsaoIwgn1zquZyqcG0iUQhuCKB-dZqcJ2PqoTg",
+                "mode": "tensor"
+              }
+            ],
+            "instances": [],
+            "nets": [],
+            "behavior": {
+              "factors": [
+                {
+                  "inputs": [
+                    "request"
+                  ],
+                  "outputs": [
+                    "receipt"
+                  ],
+                  "rows": [
+                    {
+                      "input": [
+                        {
+                          "positiveEvidence": false,
+                          "negativeEvidence": false
+                        }
+                      ],
+                      "output": [
+                        {
+                          "positiveEvidence": false,
+                          "negativeEvidence": false
+                        }
+                      ]
+                    },
+                    {
+                      "input": [
+                        {
+                          "positiveEvidence": true,
+                          "negativeEvidence": false
+                        }
+                      ],
+                      "output": [
+                        {
+                          "positiveEvidence": true,
+                          "negativeEvidence": false
+                        }
+                      ]
+                    },
+                    {
+                      "input": [
+                        {
+                          "positiveEvidence": false,
+                          "negativeEvidence": true
+                        }
+                      ],
+                      "output": [
+                        {
+                          "positiveEvidence": false,
+                          "negativeEvidence": true
+                        }
+                      ]
+                    },
+                    {
+                      "input": [
+                        {
+                          "positiveEvidence": true,
+                          "negativeEvidence": true
+                        }
+                      ],
+                      "output": [
+                        {
+                          "positiveEvidence": true,
+                          "negativeEvidence": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
+  }
+}
