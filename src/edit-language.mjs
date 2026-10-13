@@ -89,7 +89,7 @@ export function prepareCreateArtifact({ workspace, path, content, writablePaths 
   // Filesystems and package tools can interpret redundant separators, Windows
   // separators and dot segments differently. Admit one normalized POSIX path.
   if (typeof path !== "string" || !path || isAbsolute(path) ||
-      path.includes("\\\\") || path.includes("\\0") ||
+      path.includes("\\") || path.includes("\0") ||
       path.split("/").some(segment => !segment || segment === "." || segment === ".." || segment === ".git"))
     return refuse("create path must be a confined normalized relative path");
   if (typeof content !== "string") return refuse("create requires string content");
