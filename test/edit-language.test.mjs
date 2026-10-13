@@ -119,7 +119,7 @@ test("create refuses symlink ancestors and dangling symlinks, not only existing 
   const make = path => prepareCreateArtifact({workspace, path, content:"export {};\n", writablePaths:[path]});
   for (const path of ["linked/new.mjs", "dangling.mjs", "ordinary/present.mjs",
     "ordinary//new.mjs", "ordinary/./new.mjs", "ordinary/../new.mjs",
-    ".git/config", "ordinary\\\\escape.mjs"]) {
+    ".git/config", "ordinary\\\\escape.mjs", "ordinary\\0file.mjs"]) {
     assert.equal(make(path).ok, false, path);
   }
   assert.equal(make("ordinary/new.mjs").ok, true);
