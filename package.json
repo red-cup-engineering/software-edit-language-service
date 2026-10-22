@@ -10,5 +10,10 @@
   "exports": "./src/edit-language.mjs",
   "scripts": {
     "test": "node --test"
+  },
+  "license": "MIT",
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/561-group/.github/blob/main/TIPS.md"
   }
 }
