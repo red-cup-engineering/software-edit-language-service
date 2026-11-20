@@ -1,3 +1,4 @@
+import { sha256Hex } from "@red-cup-engineering/semiotic-content-address-system";
 // Deterministic SEARCH/REPLACE edit language for bounded software patches.
 // Groq Llama-70B, produced a correct edit for a real bounty this way; unified diffs and the
 // tiny model did not). More reliable for free models than unified diffs, and applied by
@@ -37,7 +38,7 @@ function exactLineOccurrence(source, needle) {
   return found < 0 ? { reason: "SEARCH block not found as complete lines" } : { index: found };
 }
 
-const sha256 = text => createHash("sha256").update(text, "utf8").digest("hex");
+
 
 /** Apply generated SEARCH/REPLACE blocks as one source-local transaction.
  * Reject ambiguous matches, non-block prose, malformed delimiters and stale
@@ -50,7 +51,7 @@ export function applyEditBlocks(source, text, { expectedSourceSha256 } = {}) {
   const fail = reason => ({ ok: false, count: 0, reason });
   if (typeof source !== "string" || typeof text !== "string")
     return fail("source and proposal must be strings");
-  const sourceSha256 = sha256(source);
+  const sourceSha256 = sha256Hex(source);
   if (expectedSourceSha256 !== undefined &&
       (typeof expectedSourceSha256 !== "string" ||
        !/^[0-9a-f]{64}$/u.test(expectedSourceSha256) ||
@@ -76,7 +77,7 @@ export function applyEditBlocks(source, text, { expectedSourceSha256 } = {}) {
   if (text.slice(endOfPreviousBlock).trim() !== "")
     return fail("proposal contains text outside SEARCH/REPLACE blocks");
   if (count === 0) return fail("proposal must contain at least one complete edit block");
-  return { ok: true, count, result, sourceSha256, resultSha256: sha256(result) };
+  return { ok: true, count, result, sourceSha256, resultSha256: sha256Hex(result) };
 }
 
 // Creation is deliberately a different language act from SEARCH/REPLACE.  It
