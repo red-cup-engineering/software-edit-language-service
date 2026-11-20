@@ -8,7 +8,7 @@ import { sha256Hex } from "@red-cup-engineering/semiotic-content-address-system"
 // so the parser accepts any suffix on the marker lines.
 
 import { lstatSync, realpathSync, statSync } from "node:fs";
-import { createHash } from "node:crypto";
+
 import { isAbsolute, relative, resolve, sep } from "node:path";
 
 export const EDIT_SYSTEM_PROMPT =
